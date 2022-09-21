@@ -45,13 +45,23 @@ function M.setup()
       end,
     }
 
-   -- Startup screen
+    -- Startup screen
     use {
       "goolord/alpha-nvim",
       config = function()
         require("config.alpha").setup()
       end,
     } 
+
+    -- Startup screen
+    use {
+      "nvim-telescope/telescope.nvim",
+      tag = "0.1.0",
+      requires = {{'nvim-lua/plenary.nvim'}},
+      config = function()
+        require("config.telescope").setup()
+      end,
+    }
 
     if packer_bootstrap then
       print "Restart Neovim required after installation!"
