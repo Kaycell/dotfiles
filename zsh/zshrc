@@ -1,3 +1,14 @@
 alias vi="nvim"
 alias vim="vi"
 alias ls="ls --color"
+
+# Bazel
+function bzlw {
+  echo "Getting all workflows for $1"
+  bzl query "kind(_cnab_workflow_wrapper, $1)"
+}
+
+function bzlt {
+  echo "Getting all targets for $1"
+  bzl query "kind(cnab_action_invocation, $1)"
+}
