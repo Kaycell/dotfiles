@@ -63,6 +63,14 @@ function M.setup()
       end,
     }
 
+    -- Treesitter
+    use {
+      "nvim-treesitter/nvim-treesitter",
+      config = function()
+        require("config.treesitter").setup()
+      end,
+    }
+
     if packer_bootstrap then
       print "Restart Neovim required after installation!"
       require("packer").sync()
