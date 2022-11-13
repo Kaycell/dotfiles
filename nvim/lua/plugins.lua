@@ -75,7 +75,7 @@ function M.setup()
     use {
       "neovim/nvim-lspconfig",
       config = function()
-        require("config.lsp").setup()
+        require("config.lsp.lsp").setup()
       end,
     }
 
@@ -83,8 +83,26 @@ function M.setup()
     use {
       "L3MON4D3/LuaSnip",
       tag = "v1.*",
+      requires = {
+        "saadparwaiz1/cmp_luasnip",
+      },
       config = function()
         require("config.luasnip").setup()
+      end,
+    }
+
+    -- Completion
+    use {
+      "hrsh7th/nvim-cmp",
+      requires = {
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-cmdline',
+        "L3MON4D3/LuaSnip",
+      },
+      config = function()
+        require("config.cmp").setup()
       end,
     }
 
