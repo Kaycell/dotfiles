@@ -79,6 +79,15 @@ function M.setup()
       end,
     }
 
+    -- Snippet
+    use {
+      "L3MON4D3/LuaSnip",
+      tag = "v1.*",
+      config = function()
+        require("config.luasnip").setup()
+      end,
+    }
+
     if packer_bootstrap then
       print "Restart Neovim required after installation!"
       require("packer").sync()
