@@ -1,8 +1,6 @@
 local M = {}
 
 function M.setup()
-  local api = vim.api
-  local g   = vim.g
   local opt = vim.opt
 
   opt.termguicolors  = true          -- Enable colors in terminal

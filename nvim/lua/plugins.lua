@@ -51,7 +51,7 @@ function M.setup()
       config = function()
         require("config.alpha").setup()
       end,
-    } 
+    }
 
     -- Startup screen
     use {
@@ -68,6 +68,14 @@ function M.setup()
       "nvim-treesitter/nvim-treesitter",
       config = function()
         require("config.treesitter").setup()
+      end,
+    }
+
+    -- Lsp
+    use {
+      "neovim/nvim-lspconfig",
+      config = function()
+        require("config.lsp").setup()
       end,
     }
 
