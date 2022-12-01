@@ -12,3 +12,12 @@ function bzlt {
   echo "Getting all targets for $1"
   bzl query "kind(cnab_action_invocation, $1)"
 }
+
+# K8s
+alias k="kubectl"
+
+# Workspace
+export WORKSPACE="$(echo $USER | sed s/\\.//g)"
+
+# Kitty ssh
+alias s="kitty +kitten ssh"
