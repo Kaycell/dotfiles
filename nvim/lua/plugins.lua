@@ -53,14 +53,21 @@ function M.setup()
       end,
     }
 
-    -- Startup screen
+    -- Telescope
     use {
       "nvim-telescope/telescope.nvim",
       tag = "0.1.0",
-      requires = {{'nvim-lua/plenary.nvim'}},
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope-ui-select.nvim",
+      },
       config = function()
         require("config.telescope").setup()
       end,
+    }
+
+    use {
+      "nvim-telescope/telescope-ui-select.nvim",
     }
 
     -- Treesitter
