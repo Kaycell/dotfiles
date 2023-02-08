@@ -18,6 +18,7 @@ function M.setup()
   opt.tabstop        = 2             -- Tabs behavior
   opt.softtabstop    = 2             --
   opt.shiftwidth     = 2             --
+  opt.laststatus     = 3             -- Global status line
 
   -- Highlight on yank
   vim.cmd [[

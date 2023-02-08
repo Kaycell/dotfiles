@@ -22,7 +22,7 @@ function M.setup()
   map({ "n", "v" }, "<leader><leader>yy", "\"+yy", default_options)
 
   -- Left explorer toggle
-  map("n", "<leader>e", ":Lexplore<CR>", default_options)
+  map("n", "<leader>e", ":30Lexplore<CR>", default_options)
 end
 
 return M
