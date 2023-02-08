@@ -86,6 +86,11 @@ function M.setup()
       end,
     }
 
+    -- Jinja
+    use {
+      "Glench/Vim-Jinja2-Syntax"
+    }
+
     -- Snippet
     use {
       "L3MON4D3/LuaSnip",
