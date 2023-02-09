@@ -91,6 +91,11 @@ function M.setup()
       "Glench/Vim-Jinja2-Syntax"
     }
 
+    -- Helm
+    use {
+      "towolf/vim-helm"
+    }
+
     -- Snippet
     use {
       "L3MON4D3/LuaSnip",
