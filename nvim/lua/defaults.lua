@@ -3,6 +3,13 @@ local M = {}
 function M.setup()
   local opt = vim.opt
 
+  -- Providers
+  vim.g.python_host_prog     = "/Users/kevin.viricel/.pyenv/shims/python2"
+  vim.g.python3_host_prog    = "/Users/kevin.viricel/.pyenv/shims/python3"
+  vim.g.loaded_node_provider = 0
+  vim.g.loaded_perl_provider = 0
+  vim.g.loaded_ruby_provider = 0
+
   opt.termguicolors  = true          -- Enable colors in terminal
   opt.hlsearch       = true          -- Set highlight on search
   opt.number         = true          -- Make line numbers default
