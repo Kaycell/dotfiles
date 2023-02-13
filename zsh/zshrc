@@ -19,5 +19,9 @@ alias k="kubectl"
 # Workspace
 export WORKSPACE="$(echo $USER | sed s/\\.//g)"
 
+function workspace {
+  pkill workspaces; (workspaces proxy $WORKSPACE > /dev/null 2>&1 &) && kitty +kitten ssh workspace-$WORKSPACE
+}
+
 # Kitty ssh
 alias s="kitty +kitten ssh"
