@@ -6,3 +6,5 @@ vim.g.python3_host_prog = "/Users/kevin.viricel/.pyenv/shims/python3"
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
+
+vim.diagnostic.config({ virtual_text = false })
