@@ -6,7 +6,11 @@ return {
       ---@type lspconfig.options
       servers = {
         gopls = {},
-        pylsp = {},
+        pylsp = {
+          plugins = {
+            pylint = { enabled = true },
+          },
+        },
       },
     },
   },
