@@ -25,3 +25,9 @@ function workspace {
 
 # Kitty ssh
 alias s="kitty +kitten ssh"
+
+# Set SSH_AUTH_SOCK to the launchd-managed ssh-agent socket (com.openssh.ssh-agent).
+export SSH_AUTH_SOCK=$(launchctl asuser $(id -u) launchctl getenv SSH_AUTH_SOCK)
+
+# Load SSH keys from the keychain if keychain is empty.
+ssh-add -l > /dev/null || ssh-add --apple-load-keychain 2> /dev/null
