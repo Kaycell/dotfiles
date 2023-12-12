@@ -4,7 +4,7 @@
 
 -- ChangeBackground changes the background mode based on macOS's `Appearance` setting.
 function ChangeBackground()
-  if os.execute("defaults read -g AppleInterfaceStyle") == 0 then
+  if os.execute("defaults read -g AppleInterfaceStyle 2&>1 /dev/null") == 0 then
     vim.go.background = "dark"
   else
     vim.go.background = "light"
