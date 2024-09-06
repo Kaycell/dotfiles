@@ -1,6 +1,8 @@
-alias vi="nvim"
 alias vim="vi"
 alias ls="ls --color"
+
+# Gitlab
+export GITLAB_TOKEN=$(security find-generic-password -a ${USER} -s gitlab_token -w)
 
 # Bazel
 function bzlw {
@@ -13,8 +15,22 @@ function bzlt {
   bzl query "kind(cnab_action_invocation, $1)"
 }
 
+function kubectlgetall {
+  for i in $(kubectl api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do
+    echo "Resource:" $i
+    
+    if [ -z "$1" ]
+    then
+        kubectl get --ignore-not-found ${i}
+    else
+        kubectl -n ${1} get --ignore-not-found ${i}
+    fi
+  done
+}
+
 # K8s
 alias k="kubectl"
+alias kall="kubectlgetall"
 
 # Workspace
 export WORKSPACE="$(echo $USER | sed s/\\.//g)"
