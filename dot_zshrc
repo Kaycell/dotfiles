@@ -1,3 +1,18 @@
+########################################
+# Prompt                               #
+########################################
+
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+# Enable git for vcs_info
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' formats '(%b) '
+
+# Bold everywhere; user=blue, host=red, folder=green, branch=magenta
+setopt prompt_subst
+PROMPT='%B%F{blue}%n%f@%F{red}%m%f %F{green}%~%f %F{magenta}${vcs_info_msg_0_}%f%#%b '
+
 export EDITOR=vim
 
 alias k=kubectl
