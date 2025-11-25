@@ -13,6 +13,18 @@ zstyle ':vcs_info:git:*' formats '(%b) '
 setopt prompt_subst
 PROMPT='%B%F{blue}%n%f@%F{red}%m%f %F{green}%~%f %F{magenta}${vcs_info_msg_0_}%f%#%b '
 
+########################################
+# Homebrew                             #
+########################################
+
+if [ -x /opt/homebrew/bin/brew ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [ -x /usr/local/bin/brew ]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+elif [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 export EDITOR=vim
 
 alias ls='ls --color=auto'
