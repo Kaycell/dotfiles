@@ -15,4 +15,5 @@ PROMPT='%B%F{blue}%n%f@%F{red}%m%f %F{green}%~%f %F{magenta}${vcs_info_msg_0_}%f
 
 export EDITOR=vim
 
+alias ls='ls --color=auto'
 alias k=kubectl
