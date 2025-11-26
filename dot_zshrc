@@ -39,12 +39,6 @@ setopt HIST_REDUCE_BLANKS    # remove superfluous blanks
 setopt HIST_VERIFY           # don't execute history lines directly
 
 ########################################
-# Ansible                              #
-########################################
-
-export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible/ansible.cfg"
-
-########################################
 # Homebrew                             #
 ########################################
 

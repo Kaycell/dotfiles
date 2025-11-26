@@ -1,8 +1,7 @@
 #!/bin/bash
 set -e
 
-PLAYBOOK="$HOME/.config/ansible/local.yml"
-ANSIBLE_CFG="$HOME/.config/ansible/ansible.cfg"
+PLAYBOOK="$XDG_CONFIG_HOME/ansible/local.yml"
 
 if ! command -v ansible-playbook >/dev/null 2>&1; then
     echo "Ansible is not installed, skipping Ansible playbook." >&2
@@ -12,10 +11,6 @@ fi
 if [ ! -f "$PLAYBOOK" ]; then
     echo "Ansible playbook $PLAYBOOK not found, skipping." >&2
     exit 0
-fi
-
-if [ -f "$ANSIBLE_CFG" ]; then
-    export ANSIBLE_CONFIG="$ANSIBLE_CFG"
 fi
 
 OS="$(uname -s)"
