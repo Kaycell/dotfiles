@@ -1,0 +1,24 @@
+- hosts: localhost
+  gather_facts: true
+  become: false
+
+  tasks:
+    - name: Install packages on macOS via Homebrew
+      homebrew:
+        name:
+          - git
+          - vim
+          - fd
+        state: present
+      when: ansible_facts['os_family'] == 'Darwin'
+
+    - name: Install packages on Debian/Ubuntu via apt
+      become: true
+      apt:
+        name:
+          - git
+          - vim
+          - fd-find   # apt package name for fd
+        state: present
+        update_cache: true
+      when: ansible_facts['os_family'] == 'Debian'
