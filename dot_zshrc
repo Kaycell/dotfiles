@@ -50,6 +50,16 @@ elif [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
+########################################
+# TERM                                 #
+########################################
+
+# If TERM is unknown on this machine, fallback to xterm-256color
+if ! infocmp "$TERM" >/dev/null 2>&1; then
+    echo "Warning: TERM '$TERM' is not supported on this system. Falling back to 'xterm-256color'." >&2
+    export TERM=xterm-256color
+fi
+
 export EDITOR=vim
 
 alias ls='ls --color=auto'
