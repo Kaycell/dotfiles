@@ -16,7 +16,7 @@ case "$OS" in
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         ;;
     *)
-        echo "Unsupported operating system: $OS"
+        echo "Unsupported operating system: $OS" >&2
         exit 1
         ;;
 esac
