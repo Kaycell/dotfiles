@@ -1,7 +1,6 @@
 ########################################
 # XDG Base Directories & User PATH     #
 ########################################
-
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
@@ -12,7 +11,6 @@ export PATH="$HOME/.local/bin:$PATH"
 ########################################
 # Prompt                               #
 ########################################
-
 autoload -Uz vcs_info
 precmd() { vcs_info }
 
@@ -27,7 +25,6 @@ PROMPT='%B%F{blue}%n%f@%F{red}%m%f %F{green}%~%f %F{magenta}${vcs_info_msg_0_}%f
 ########################################
 # History                              #
 ########################################
-
 HISTSIZE=10000               # number of lines kept in memory
 SAVEHIST=10000               # number of lines saved to history file
 
@@ -41,7 +38,6 @@ setopt HIST_VERIFY           # don't execute history lines directly
 ########################################
 # Homebrew                             #
 ########################################
-
 if [ -x /opt/homebrew/bin/brew ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 elif [ -x /usr/local/bin/brew ]; then
@@ -53,8 +49,6 @@ fi
 ########################################
 # TERM                                 #
 ########################################
-
-# If TERM is unknown on this machine, fallback to xterm-256color
 if ! infocmp "$TERM" >/dev/null 2>&1; then
     echo "Warning: TERM '$TERM' is not supported on this system. Falling back to 'xterm-256color'." >&2
     export TERM=xterm-256color
@@ -64,3 +58,10 @@ export EDITOR=vim
 
 alias ls='ls --color=auto'
 alias k=kubectl
+
+########################################
+# WORK                                 #
+########################################
+if [ -f "$HOME/.zshrc.datadog" ]; then
+  source "$HOME/.zshrc.datadog"
+fi
