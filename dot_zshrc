@@ -54,8 +54,19 @@ if ! infocmp "$TERM" >/dev/null 2>&1; then
     export TERM=xterm-256color
 fi
 
-export EDITOR=vim
+########################################
+# TEXT EDITOR                          #
+########################################
+export EDITOR=nvim
 
+########################################
+# FZF                                  #
+########################################
+source <(fzf --zsh)
+
+########################################
+# ALIASES                              #
+########################################
 alias ls='ls --color=auto'
 alias k=kubectl
 
