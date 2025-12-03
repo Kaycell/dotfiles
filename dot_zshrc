@@ -62,7 +62,11 @@ export EDITOR=nvim
 ########################################
 # FZF                                  #
 ########################################
-source <(fzf --zsh)
+if command -v fzf >/dev/null 2>&1; then
+    source <(fzf --zsh)
+else
+    echo "Warning: 'fzf' not installed." >&2
+fi
 
 ########################################
 # ALIASES                              #
