@@ -1,0 +1,13 @@
+brew "git"
+brew "vim"
+brew "neovim"
+brew "fd"
+brew "fzf"
+
+# macOS specific
+{{- if eq .chezmoi.os "darwin" }}
+{{- end }}
+
+# linux specific
+{{- if eq .chezmoi.os "linux" }}
+{{- end }}

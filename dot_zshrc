@@ -71,8 +71,11 @@ fi
 ########################################
 # ALIASES                              #
 ########################################
+alias k='kubectl'
 alias ls='ls --color=auto'
-alias k=kubectl
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
 
 ########################################
 # WORK                                 #

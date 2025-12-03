@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
 # Detect Homebrew
 if command -v brew >/dev/null 2>&1; then
