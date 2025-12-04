@@ -1,13 +1,16 @@
 #!/bin/bash
 set -euo pipefail
 
-# Detect Homebrew
-if ! command -v brew >/dev/null 2>&1; then
-    echo "Error: Homebrew is not installed." >&2
-    exit 1
-fi
+{{ if (and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64")) }}
+HOMEBREW_PREFIX="/opt/homebrew"
+{{ else if eq .chezmoi.os "linux" }}
+HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+{{ else }}
+echo "Unsupported operating system" >&2
+exit 1
+{{ end }}
 
-BREWFILE="$XDG_CONFIG_HOME/homebrew/Brewfile"
+BREWFILE="$HOME/.config/homebrew/Brewfile"
 
 if [ ! -f "$BREWFILE" ]; then
     echo "Brewfile not found at $BREWFILE" >&2
@@ -15,6 +18,6 @@ if [ ! -f "$BREWFILE" ]; then
 fi
 
 echo "Installing packages from Brewfile..."
-brew bundle --file="$BREWFILE"
+$HOMEBREW_PREFIX/bin/brew bundle --file="$BREWFILE"
 
 echo "Package installation complete."
