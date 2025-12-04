@@ -1,0 +1,20 @@
+#!/bin/bash
+set -euo pipefail
+
+if command -v brew >/dev/null 2>&1; then
+    echo "Homebrew already installed."
+    exit 0
+fi
+
+{{ if (and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64")) }}
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+{{ else if eq .chezmoi.os "linux" }}
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+{{ else }}
+echo "Unsupported operating system: $OS" >&2
+exit 1
+{{ end }}
+
+echo "Homebrew installation complete."
