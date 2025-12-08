@@ -1,0 +1,26 @@
+#!/bin/bash
+set -euo pipefail
+
+{{ if (and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64")) }}
+HOMEBREW_PREFIX="/opt/homebrew"
+{{ else if eq .chezmoi.os "linux" }}
+HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+{{ else }}
+echo "Unsupported operating system" >&2
+exit 1
+{{ end }}
+
+echo "Setting homebrew zsh as default user shell..."
+
+eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+
+ZSH_PATH="$(which zsh)"
+
+# Add to /etc/shells if not already present
+if ! grep -q "^${ZSH_PATH}$" /etc/shells; then
+    echo "$ZSH_PATH" | sudo tee -a /etc/shells
+fi
+
+sudo chsh -s "$ZSH_PATH" "{{ .chezmoi.username }}"
+
+echo "Zsh setup complete. Start a new login shell to use zsh."
