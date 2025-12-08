@@ -12,7 +12,10 @@ export PATH="$HOME/.local/bin:$PATH"
 # Prompt                               #
 ########################################
 autoload -Uz vcs_info
-precmd() { vcs_info }
+precmd() {
+    vcs_info
+    echo -ne '\e[3 q'  # Reset cursor to blinking underline
+}
 
 # Enable git for vcs_info
 zstyle ':vcs_info:*' enable git

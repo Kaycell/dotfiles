@@ -1,1 +1,5 @@
+cursor-style = underline
+cursor-style-blink = true
+adjust-cursor-thickness = 3
+shell-integration-features = no-cursor
 theme = dark:Catppuccin Mocha,light:Catppuccin Latte

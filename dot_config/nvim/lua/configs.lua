@@ -5,6 +5,10 @@ vim.cmd.colorscheme('catppuccin')
 opt.colorcolumn   = '80'      -- Highlight column 80
 opt.cursorline    = true      -- Highlight the current line
 opt.expandtab     = true      -- Use spaces instead of tabs
+opt.guicursor     = {         -- Cursor shape & blink
+  'n-v-c:block-blinkwait700-blinkoff400-blinkon250',
+  'i-ci-ve:hor100-blinkwait700-blinkoff400-blinkon250',
+}
 opt.ignorecase    = true      -- Ignore case in search
 opt.number        = true      -- Show line numbers
 opt.shiftround    = true      -- Round indent to multiple of shiftwidth
