@@ -2,7 +2,6 @@ local opt = vim.opt
 
 vim.cmd.colorscheme('catppuccin')
 
-opt.colorcolumn   = '80'      -- Highlight column 80
 opt.cursorline    = true      -- Highlight the current line
 opt.expandtab     = true      -- Use spaces instead of tabs
 opt.guicursor     = {         -- Cursor shape & blink
