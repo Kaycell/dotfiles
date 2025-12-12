@@ -1,3 +1,7 @@
+local library = vim.tbl_filter(function(d)
+  return not d:match(vim.fn.stdpath('config') .. '/?a?f?t?e?r?')
+end, vim.api.nvim_get_runtime_file('', true))
+
 ---@type vim.lsp.Config
 return {
     cmd = { 'lua-language-server' },
@@ -15,18 +19,16 @@ return {
     settings = {
         Lua = {
             runtime = {
-                version = 'Lua 5.4',
+                version = 'LuaJIT',
             },
             completion = {
                 enable = true,
             },
             diagnostics = {
                 enable = true,
-                globals = { 'vim'  },
             },
             workspace = {
-                library = { vim.env.VIMRUNTIME },
-                checkThirdParty = false,
+                library = library,
             },
         },
     },
