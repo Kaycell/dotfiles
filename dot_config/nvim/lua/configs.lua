@@ -10,6 +10,8 @@ opt.guicursor     = {         -- Cursor shape & blink
 }
 opt.ignorecase    = true      -- Ignore case in search
 opt.number        = true      -- Show line numbers
+opt.scrolloff     = 10        -- Keep 10 lines above/below cursor
+opt.sidescrolloff = 8         -- Keep 8 columns left/right of cursor
 opt.shiftround    = true      -- Round indent to multiple of shiftwidth
 opt.shiftwidth    = 4         -- Number of spaces for autoindent
 opt.smartcase     = true      -- Match case on caps
