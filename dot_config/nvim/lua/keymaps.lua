@@ -1,7 +1,8 @@
 local glb = vim.g
 local keymap = vim.keymap.set
 
-glb.mapleader = ' '
+glb.mapleader = vim.keycode("<space>")
+glb.maplocalleader = vim.keycode("<space>")
 
 keymap('n', '<space>', '<Nop>')
 
