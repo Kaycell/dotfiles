@@ -6,6 +6,10 @@ glb.maplocalleader = vim.keycode("<space>")
 
 keymap('n', '<space>', '<Nop>')
 
+-- Buffers
+keymap('n', '<leader>bp', ':bprevious<CR>', { desc = 'Previous buffer' })
+keymap('n', '<leader>bn', ':bnext<CR>', { desc = 'Next buffer' })
+
 -- Search
 keymap('n', '<Esc>', '<cmd>nohlsearch<CR>', {
     desc = 'Clear highlights on search when pressing <Esc> in normal mode'
