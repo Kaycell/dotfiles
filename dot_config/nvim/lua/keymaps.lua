@@ -10,6 +10,9 @@ keymap('n', '<space>', '<Nop>')
 keymap('n', '<leader>bp', ':bprevious<CR>', { desc = 'Previous buffer' })
 keymap('n', '<leader>bn', ':bnext<CR>', { desc = 'Next buffer' })
 
+-- Explorer
+keymap('n', '<leader>e', Toggle, { desc = "Toggle netrw float" })
+
 -- Search
 keymap('n', '<Esc>', '<cmd>nohlsearch<CR>', {
     desc = 'Clear highlights on search when pressing <Esc> in normal mode'

@@ -1,7 +1,7 @@
 require('plugins')
 require('configs')
+require('explorer')
 require('keymaps')
 require('autocmds')
-require('explorer')
 -- require('statusline')
 require('lsp')
