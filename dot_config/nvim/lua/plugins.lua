@@ -4,6 +4,6 @@ vim.pack.add({
 require('catppuccin').setup({})
 
 vim.pack.add({
-    { src = 'https://github.com/mason-org/mason.nvim' },
+    { src = 'https://github.com/stevearc/oil.nvim' },
 })
-require("mason").setup({})
+require('oil').setup()

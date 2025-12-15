@@ -1,8 +1,8 @@
-local glb = vim.g
+local glb    = vim.g
 local keymap = vim.keymap.set
 
-glb.mapleader = vim.keycode("<space>")
-glb.maplocalleader = vim.keycode("<space>")
+glb.mapleader      = vim.keycode('<space>')
+glb.maplocalleader = vim.keycode('<space>')
 
 keymap('n', '<space>', '<Nop>')
 
@@ -11,7 +11,15 @@ keymap('n', '<leader>bp', ':bprevious<CR>', { desc = 'Previous buffer' })
 keymap('n', '<leader>bn', ':bnext<CR>', { desc = 'Next buffer' })
 
 -- Explorer
-keymap('n', '<leader>e', Toggle, { desc = "Toggle netrw float" })
+keymap('n', '<leader>e', require('oil').toggle_float, {
+    desc = 'Open oil file explorer at file dir'
+})
+local function toggle_float_at_cwd()
+    require('oil').toggle_float('.')
+end
+keymap('n', '<leader>E', toggle_float_at_cwd, {
+    desc = 'Open oil file explorer at cwd'
+})
 
 -- Search
 keymap('n', '<Esc>', '<cmd>nohlsearch<CR>', {

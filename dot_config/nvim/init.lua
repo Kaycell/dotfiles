@@ -1,6 +1,5 @@
 require('plugins')
 require('configs')
-require('explorer')
 require('keymaps')
 require('autocmds')
 -- require('statusline')

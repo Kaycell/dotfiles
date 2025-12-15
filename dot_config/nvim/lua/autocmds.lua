@@ -12,19 +12,26 @@ autocmd('TextYankPost', {
 })
 
 -- Ruler at column 80
-local ns = vim.api.nvim_create_namespace("ruler")
+local ns = vim.api.nvim_create_namespace('ruler')
 local function set_ruler()
-  vim.api.nvim_buf_clear_namespace(0, ns, 0, -1)
+    vim.api.nvim_buf_clear_namespace(0, ns, 0, -1)
 
-  local lines = vim.api.nvim_buf_line_count(0)
-  for l = 0, lines - 1 do
-    vim.api.nvim_buf_set_extmark(0, ns, l, 0, {
-      virt_text = { { "│", "LineNr" } },
-      virt_text_win_col = 79,
-      hl_mode = "combine",
-    })
-  end
+    if vim.bo.filetype == 'oil' then
+        return
+    end
+
+    local lines = vim.api.nvim_buf_line_count(0)
+    for l = 0, lines - 1 do
+        local text = vim.api.nvim_buf_get_lines(0, l, l + 1, false)[1] or ''
+        if vim.fn.strdisplaywidth(text) < 80 then
+            vim.api.nvim_buf_set_extmark(0, ns, l, 0, {
+                virt_text = { { '│', 'LineNr' } },
+                virt_text_win_col = 79,
+                hl_mode = 'combine',
+            })
+        end
+    end
 end
-autocmd({ "BufEnter", "TextChanged", "TextChangedI", "InsertLeave" }, {
-  callback = set_ruler,
+autocmd({ 'BufEnter', 'TextChanged', 'TextChangedI', 'InsertLeave' }, {
+    callback = set_ruler,
 })
