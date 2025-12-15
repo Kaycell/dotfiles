@@ -35,3 +35,9 @@ end
 autocmd({ 'BufEnter', 'TextChanged', 'TextChangedI', 'InsertLeave' }, {
     callback = set_ruler,
 })
+
+-- Treesitter
+autocmd("FileType", {
+    pattern = require("treesitter").supported_filetypes,
+    callback = function() vim.treesitter.start() end,
+})
