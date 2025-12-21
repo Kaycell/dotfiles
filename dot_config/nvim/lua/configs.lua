@@ -2,6 +2,12 @@ local opt = vim.opt
 
 vim.cmd.colorscheme('catppuccin')
 
+opt.completeopt   = {         -- Completion menu
+    'menu',
+    'menuone',
+    'popup',
+    'fuzzy'
+}
 opt.cursorline    = true      -- Highlight the current line
 opt.expandtab     = true      -- Use spaces instead of tabs
 opt.guicursor     = {         -- Cursor shape & blink
@@ -10,6 +16,8 @@ opt.guicursor     = {         -- Cursor shape & blink
 }
 opt.ignorecase    = true      -- Ignore case in search
 opt.number        = true      -- Show line numbers
+opt.pumheight     = 10        -- Popup menu height
+opt.pumblend      = 10        -- Popup menu transparency
 opt.scrolloff     = 10        -- Keep 10 lines above/below cursor
 opt.sidescrolloff = 8         -- Keep 8 columns left/right of cursor
 opt.shiftround    = true      -- Round indent to multiple of shiftwidth
