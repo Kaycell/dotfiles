@@ -63,6 +63,13 @@ fi
 export EDITOR=nvim
 
 ########################################
+# BAT                                  #
+########################################
+export BAT_THEME_DARK="Catppuccin Mocha"
+export BAT_THEME_LIGHT="Catppuccin Latte"
+alias bat="bat --theme auto:system --theme-dark '$BAT_THEME_DARK' --theme-light '$BAT_THEME_LIGHT'"
+
+########################################
 # FZF                                  #
 ########################################
 if command -v fzf >/dev/null 2>&1; then
