@@ -42,3 +42,12 @@ autocmd("FileType", {
     pattern = require("treesitter").supported_filetypes,
     callback = function() vim.treesitter.start() end,
 })
+
+-- LSP
+local lsp_group = augroup("UserLspAttach", { clear = true })
+autocmd("LspAttach", {
+    callback = function(ev)
+        vim.lsp.completion.enable(true, ev.data.client_id, ev.buf)
+    end,
+    group = lsp_group,
+})
